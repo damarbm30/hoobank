@@ -1,0 +1,28 @@
+import { feedback } from "../constants";
+import styles from "../styles";
+import FeedbackCard from "./FeedbackCard";
+
+const Testimonials = () => {
+  return (
+    <section id="clients" className={`${styles.paddingY} ${styles.flexCenter} relative flex-col`}>
+      <div className="blue__gradient absolute -right-1/2 z-[0] h-3/5 w-3/5 rounded-full" />
+      <div className="relative z-[1] mb-6 flex w-full flex-col items-center justify-between sm:mb-16 md:flex-row">
+        <h2 className={styles.heading2}>
+          What people are <br className="hidden sm:block" /> saying about us
+        </h2>
+        <div className="mt-6 w-full md:mt-0">
+          <p className={`${styles.paragraph} max-w-[450px] text-left`}>
+            Everything you need to accept card payments and grow your business anywhere on the planet.
+          </p>
+        </div>
+      </div>
+      <div className="feedback-container relative z-[1] flex w-full flex-wrap justify-center sm:justify-start">
+        {feedback.map((card, index) => (
+          <FeedbackCard key={card.id} {...card} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;
